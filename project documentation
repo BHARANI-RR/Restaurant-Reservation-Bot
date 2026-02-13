@@ -1,0 +1,121 @@
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/your-username/restaurant-reservation-bot.git
+cd restaurant-reservation-bot
+
+2️⃣ Install dependencies
+npm install express node-fetch cors
+
+3️⃣ Add Your Gemini API Key
+
+In server.js, replace:
+
+const API_KEY = "YOUR_API_KEY_HERE";
+
+
+⚠️ Important: Never push your real API key to GitHub.
+Use environment variables instead:
+
+set API_KEY=your_key_here   (Windows)
+export API_KEY=your_key_here (Mac/Linux)
+
+
+Then update your code:
+
+const API_KEY = process.env.API_KEY;
+
+4️⃣ Run the server
+node server.js
+
+
+Open in browser:
+
+http://localhost:3000
+
+💬 How to Use the Bot
+✔️ Booking Format
+Name Time Guests
+
+
+Example:
+
+Rahul 6pm 4
+
+
+Bot Response:
+
+✅ Reservation confirmed for Rahul at 6pm for 4 guests.
+
+
+If full:
+
+❌ 6pm is full. Try another time (6pm, 7pm, 8pm).
+
+🤖 AI Fallback
+
+If the user message doesn't match the booking format,
+the bot sends the query to Gemini AI, which:
+
+Shows remaining seats
+
+Guides the user
+
+Asks for missing details
+
+🎨 UI Features
+
+Glassmorphism chat design
+
+Background restaurant image
+
+Smooth fade-in animations
+
+Scrollable chat history
+
+Enter key support
+
+🔒 Limitations
+
+Bookings reset when server restarts (no database yet)
+
+No authentication system
+
+Fixed time slots only
+
+API key currently stored in code (should use env variables)
+
+🚀 Future Improvements
+
+💾 Add MongoDB or MySQL database
+
+👤 User login system
+
+📅 Date selection support
+
+📱 WhatsApp integration
+
+💳 Payment gateway integration
+
+📊 Admin dashboard
+
+📧 Email confirmation
+
+🧠 How Reservation Logic Works
+
+User sends message.
+
+Server splits message into:
+
+name
+
+time
+
+guests
+
+Checks seat availability.
+
+Updates booking object.
+
+Returns confirmation or rejection.
+
+If format invalid → Gemini handles conversation.
